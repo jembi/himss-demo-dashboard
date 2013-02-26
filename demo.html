@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
   <head>
     <meta charset="utf-8">
     <title>
@@ -88,18 +88,19 @@
       var openmrs_hosp_host = 'http://localhost';
       var openxds_host = 'http://localhost';
 
+      var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+      var months = ["January", "February","March","April","May","June","July","August","September","October","November","December"];
+
       function updateDateTime() {
+
         var today = new Date();
 
-        var dd = today.getDate();
-        if(dd<10){dd='0'+dd};
-
-        var mm = today.getMonth()+1; //January is 0!
-        if(mm<10){mm='0'+mm};
-
+        var d = today.getDate();
+        var dow = today.getDay();
+        var m = today.getMonth();
         var yyyy = today.getFullYear();
-        
-        var date = mm+'/'+dd+'/'+yyyy;
+
+        var date = days[dow]+', '+d+' '+months[m]+' '+yyyy;
 
         var hh = today.getHours();
         if(hh<10){hh='0'+hh};
