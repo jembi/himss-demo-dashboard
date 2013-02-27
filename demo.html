@@ -77,6 +77,11 @@
           Reset Demo!
         </div>
       </a>
+      <a class="btn btn-large" href="#" onclick="sendRapidSMS()">
+        <div style="text-align: center;">
+          Send Mock SMS
+        </div>
+      </a>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
     </script>
@@ -180,6 +185,20 @@
               alert('Success: reset OpenXDS');
             } else {
               alert('Failed: reset OpenXDS');
+            }
+          }
+        );
+      }
+
+      function sendRapidSMS() {
+        $.get(
+          ntp_host+"/demo.php",
+          {type : 'sendrapidsms'},
+          function(data) {
+            if (data == 0) {
+              alert('Successfully sent SMS!');
+            } else {
+              alert('Failed to  send SMS');
             }
           }
         );
